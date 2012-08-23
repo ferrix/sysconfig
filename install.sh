@@ -9,3 +9,4 @@ cp xmobarrc ~/.xmobarrc
 cp Xresources ~/.Xresources
 mkdir -p ~/.xmonad
 cp xmonad/xmonad.hs ~/.xmonad
+xmonad --recompile
