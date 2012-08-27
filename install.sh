@@ -7,6 +7,7 @@ cp asoundrc ~/.asoundrc
 cp tmux.conf ~/.tmux.conf
 cp xmobarrc ~/.xmobarrc
 cp Xresources ~/.Xresources
+cp inputrc ~/.inputrc
 mkdir -p ~/.xmonad
 cp xmonad/xmonad.hs ~/.xmonad
 xmonad --recompile
