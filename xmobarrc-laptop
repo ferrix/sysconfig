@@ -1,0 +1,19 @@
+Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = TopW L 90
+       , commands = [ Run Weather "EFHK" ["-t"," <tempC>C","-L","64","-H","77","--normal","green","--high","red","--low","lightblue"] 36000 
+                    , Run Cpu ["-t", "C <total>%", "-L","3","-H","50","--normal","green","--high","red"] 10
+                    , Run Memory ["-t","M <usedratio>%"] 10
+                    , Run Swap ["-t", "S <usedratio>%"] 10
+                    , Run BatteryP ["BAT0", "BAT1", "BAT2"] ["-t", "B <acstatus> <left>% (<timeleft>)",
+                                                             "-L","30","-H","60","--high","green","--normal","yellow","--low", "red",
+                                                             "--", "-O", "<fc=green>AC</fc>", "-o", "<fc=red>AC</fc>"] 10
+                    , Run Date "%Y-%m-%d %H:%M" "date" 10
+                    , Run Com "hostname" [] "" 0
+                    , Run StdinReader
+                    ]
+       , sepChar ="%"
+       , alignSep = "}{"
+       , template = "%hostname% | %StdinReader% }{ %battery% | %cpu% | %memory% | %swap% | <fc=#ee9a00>%date%</fc> | %EFHK%"
+       }
