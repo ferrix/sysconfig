@@ -90,6 +90,9 @@ main = do
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
         , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
         , ((0, xK_Print), spawn "scrot")
+        , ((0, 0x1008ff12), spawn "amixer -q set Master toggle")
+        , ((0, 0x1008ff11), spawn "amixer -q set Master unmute & amixer -q set Master 7%-")
+        , ((0, 0x1008ff13), spawn "amixer -q set Master unmute & amixer -q set Master 7%+")
         ]
 
 -- | Data type for LayoutModifier which converts given layout to IM-layout
@@ -98,7 +101,7 @@ data AddRosters a = AddRosters Rational [Property] deriving (Read, Show)
 
 instance LayoutModifier AddRosters Window where
     modifyLayout (AddRosters ratio props) = applyIMs ratio props
-    modifierDescription _                = "IMs"
+    modifierDescription _                = "IM"
 
 -- | Modifier which converts given layout to IMs-layout (with dedicated
 -- space for rosters and original layout for chat windows)
