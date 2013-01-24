@@ -1,0 +1,14 @@
+[user]
+    name = Ferrix Hovi
+    email = ferrix@ferrix.fi
+[alias]
+    fa = fetch --all
+    ff = merge --ff-only upstream/master
+    br = !sh -c 'git checkout -b $1 upstream/master' -
+    st = status
+    ci = commit
+    co = checkout
+    who = shortlog -s --
+    aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
