@@ -24,3 +24,8 @@ export PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin
 
 eval `ssh-agent` > /dev/null
 ssh-add 2> /dev/null
+
+if [ -f /usr/share/bash-completion/bash_completion ] && ! shopt -oq posix; then
+    . /usr/share/bash-completion/bash_completion
+fi
+
